@@ -1,0 +1,26 @@
+.container-home {
+  display: block;
+  background-color: #0F1115;
+  height: auto;
+  min-height: 100vh;
+  height: auto;
+  .wrapper-home {
+    display: flex;
+    width: 100%;
+    padding: 1rem 0;
+    .menu {
+      display: block;
+      width: 300px;
+    }
+    .list {
+      display: block;
+      padding: 2rem;
+      padding-right: 1rem;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      box-shadow: 1px 3px 6px black;
+      background-color: #19181F;
+      width: 100%;
+    }
+  }
+}

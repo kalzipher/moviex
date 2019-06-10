@@ -1,0 +1,14 @@
+<div class="card-movie" #movieCard>
+  <img class="image-movie" movieLazyLoad [src]="movie.poster_path" (load)="lodadedImage()" alt="">
+  <div class="info-movie">
+    <span class="name-movie">{{ movie.title }}</span>
+    <div class="overview">
+      {{ movie.overview }}
+    </div>
+    <button type="button" class="btn-movie" [routerLink]="['/detail', movie.id]">
+      <span class="text-center">
+        <fa-icon [icon]="faEyeIcon"></fa-icon>
+      </span> ver mas
+    </button>
+  </div>
+</div>

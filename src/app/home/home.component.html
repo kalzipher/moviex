@@ -1,0 +1,16 @@
+<div class="container-home">
+  <movie-navbar></movie-navbar>
+  <div class="wrapper-home">
+    <div class="menu">
+      <movie-menu></movie-menu>
+    </div>
+    <div class="list">
+      <div class="row no-gutters" *ngIf="movies?.results">
+        <div class="col-md-3" *ngFor="let movie of movies.results">
+          <movie-movies [movie]="movie"></movie-movies>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<movie-footer></movie-footer>

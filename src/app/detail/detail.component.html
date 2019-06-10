@@ -1,0 +1,38 @@
+<div class="container-poster">
+  <div class="poster" #containerPoster>
+    <button class="btn-back" [routerLink]="['/']">
+      <fa-icon [icon]="iconBack"></fa-icon>
+    </button>
+    <img [src]="movie?.backdrop_path" #poster (load)="onLoad()" class="imgPoster" alt="">
+  </div>
+  <div class="container-info">
+    <div class="poster-movie">
+      <img [src]="movie?.poster_path" #moviePoster class="img">
+    </div>
+    <div class="info-movie">
+      <h2 class="title" #title>
+        {{ movie?.title }}
+      </h2>
+      <p class="description" #overview>{{ movie?.overview }}</p>
+      <p class="realese" #release>
+        Fecha de estreno: {{ movie?.release_date }}
+      </p>
+      <span class="status" #status>
+        status: {{ movie?.status }}
+      </span>
+      <!-- <movie-rating class="descrition" [runtime]="movie?.vote_average"></movie-rating> -->
+      <span class="total-vote" #totalVote>
+        Total votos: {{ movie?.vote_count }}
+      </span>
+      <ul class="list-genres" #listGenres>
+        <li class="item-genrer">
+          generos
+        </li>
+        <li class="item-genrer" *ngFor="let genre of movie?.genres">
+          {{ genre.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<movie-footer></movie-footer>
