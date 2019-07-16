@@ -5,11 +5,12 @@ import { DetailComponent } from './detail.component';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
-  { path:'', component:DetailComponent }
+  { path: '', component: DetailComponent }
 ]
 
 @NgModule({
   declarations: [DetailComponent],
+
   imports: [
     CommonModule,
     SharedModule,

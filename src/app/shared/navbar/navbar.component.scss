@@ -50,3 +50,9 @@
     }
   }
 }
+@media screen and (max-width: 800px) {
+  .navbar-movie {
+    display: none;
+    width: 100%;
+  }
+}

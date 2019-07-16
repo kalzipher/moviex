@@ -1,5 +1,10 @@
 <footer class="foo">
-  <h2 class="text-center">
-    footer
+  <img [src]="photo" movieLazyLoad [class.active]="(i + 1) === activeNumber" *ngFor="let photo of photos; index as i"
+    class="bg-footer">
+
+  <!-- <img [src]="photo" (transitionEnd)="transitionEnd($event)" #imgfooter (load)="loadBackground($event)"
+    class="bg-footer"> -->
+  <h2 class="title-footer">
+    Moviex
   </h2>
 </footer>

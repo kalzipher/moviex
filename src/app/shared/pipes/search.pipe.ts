@@ -1,4 +1,3 @@
-import { Genrer } from './../../interfaces';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -7,16 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
 
   transform(values: any[], search: string): any {
-    if(!Array.isArray(values)) {
+    if (!Array.isArray(values)) {
       return [];
     }
-    if(!search) {
+    if (!search) {
       return values;
     }
-    let filtered: any[] = values.filter(item => {
+    const filtered: any[] = values.filter(item => {
       return JSON.stringify(item).toLocaleLowerCase().includes(search.toLocaleLowerCase());
     });
+    console.log(filtered);
     return filtered;
   }
-
 }

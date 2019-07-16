@@ -1,26 +1,24 @@
-<div class="container-poster">
-  <div class="poster" #containerPoster>
-    <button class="btn-back" [routerLink]="['/']">
-      <fa-icon [icon]="iconBack"></fa-icon>
-    </button>
-    <img [src]="movie?.backdrop_path" #poster (load)="onLoad()" class="imgPoster" alt="">
-  </div>
+<div class="container-poster" [class.active]="loaded">
+  <movie-poster-backdrop [backdropPath]="movie?.backdrop_path" [backUrl]='backUrl' (onloaded)="onLoad($event)">
+  </movie-poster-backdrop>
   <div class="container-info">
-    <div class="poster-movie">
-      <img [src]="movie?.poster_path" #moviePoster class="img">
-    </div>
+    <movie-poster [poster_movie]="movie?.poster_path" [loadedBackPoster]="onloadedPosterBack"></movie-poster>
+
     <div class="info-movie">
+      <movie-percentage [percent]="movie?.vote_average * 10"></movie-percentage>
       <h2 class="title" #title>
         {{ movie?.title }}
       </h2>
       <p class="description" #overview>{{ movie?.overview }}</p>
       <p class="realese" #release>
-        Fecha de estreno: {{ movie?.release_date }}
+        Fecha de estreno: {{ movie?.release_date | date:'longDate' }}
       </p>
+      <p class="info" #budget>Presupuesto: {{ movie?.budget | currency }}</p>
+      <!-- <p class="info" #revenue>Ingresos: {{ movie?.revenue | currency }}</p> -->
+      <p class="info" #runtime>Duracion: {{ movie?.runtime }} min</p>
       <span class="status" #status>
-        status: {{ movie?.status }}
+        Estado: {{ movie?.status }}
       </span>
-      <!-- <movie-rating class="descrition" [runtime]="movie?.vote_average"></movie-rating> -->
       <span class="total-vote" #totalVote>
         Total votos: {{ movie?.vote_count }}
       </span>
@@ -32,6 +30,9 @@
           {{ genre.name }}
         </li>
       </ul>
+      <a [href]="movie?.homepage" class="homepage" target="_blank">
+        Puedes conocer mas aqui
+      </a>
     </div>
   </div>
 </div>

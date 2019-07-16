@@ -1,0 +1,6 @@
+<div class="poster" [class.down]="isDown" #containerPoster (scroll)="onScroll()">
+  <button class="btn-back" [routerLink]="[url]">
+    <fa-icon [icon]="iconBack"></fa-icon>
+  </button>
+  <img [src]="backdrop_path" #poster (load)="onLoad()" class="imgPoster" alt="">
+</div>

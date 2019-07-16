@@ -4,159 +4,22 @@
   height: auto;
   background-color: black;
   overflow-x: hidden;
+  margin-bottom: 3rem;
 }
-.poster {
-  display: block;
-  width: 100%;
-  position: relative;
-  height: 75vh;
-  overflow: hidden;
-  transition: all .3s cubic-bezier(0.5, 0.5, 0.9, 1);
-  &::before {
-    content:'';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 10rem;
-    height: 10rem;
-    border: 1rem solid rgba(255, 255, 255, 0.727);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: rotate .7s linear infinite;
-    transition: all .3s ease;
-    will-change: transform;
-  }
-  &::after {
-    content:'';
-    position: absolute;
-    bottom:0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    height: 100%;
-    max-height: 75px;
-    transition: all .3s ease-in-out;
-    background-image:linear-gradient(to bottom, transparent, rgba(15, 14, 22, 0.6), black);
-  }
-  &.down {
-    opacity: .75;
-    transform: scale(1.2) translate3d(1, 1, 3);
-    &::after {
-      max-height: 100%;
-    }
-    .imgPoster {
-      transform: scale(1.1);
-    }
-  }
-  .btn-back {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: 900;
-    background-color: transparent;
-    border: none;
-    z-index: 2;
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    &:focus {
-      outline: none;
-      cursor: pointer;
-    }
-  }
-  .imgPoster {
-    display: block;
-    width: 100%;
-    position: relative;
-    height:100%;
-    object-fit: cover;
-    object-position: top;
-    opacity: 0;
-    transition: all .3s ease;
-    will-change: transform, opacity;
-    &.active {
-      animation-name: in;
-      animation-duration: 1.5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-      animation-delay: .3s;
-    }
-    @keyframes in {
-      from {
-        opacity: 0;
-        transform: scale(1.5)
-      }
-      to {
-        opacity: 1;
-        transform: scale(1)
-      }
-    }
-  }
-}
+
 .container-info {
   display: flex;
   position: relative;
   width: 80%;
   margin: auto;
 }
-.poster-movie {
-  position: relative;
-  transform: translateY(-35%);
-  width: 100%;
-  max-width: 250px;
-  height: max-content;
-  z-index: 2;
-  display: inline-block;
-  transition: all .3s ease;
-  &::after, &::before {
-    content: '';
-  }
-  .img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    will-change: transform, opacity, box-shadow, left;
-    box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, .35);
-    border-radius: 15px;
-    opacity: 0;
-    left: -40%;
-    position: relative;
-    transition: all 1.5s cubic-bezier(0.175, 0.75, 0.35, 1) .1s;
-    box-shadow: 0 0 0 transparent;
-    &.active {
-      animation: inPoster 1.5s cubic-bezier(0.175, 0.75, 0.35, 1) .85s forwards;
-      &:hover {
-        transform: rotateY(-25deg) rotateX(-15deg);
-        box-shadow: -0.5em 0.25em 0.1rem #c5c5c5;
-      }
-    }
-    @keyframes inPoster {
-      from {
-        left: -40%;
-        opacity: 0;
-      }
-      to {
-        left: 0;
-        opacity: 1;
-      }
-    }
-  }
-}
 .info-movie {
   display: inline-block;
   width: 100%;
   padding: 1rem;
   overflow: hidden;
+  color: rgba(255, 255, 255, 0.75);
   .title, .description {
-    color: rgba(255, 255, 255, 0.75);
     opacity: 0;
     will-change: transform, opacity;
     transition: all .3s ease;
@@ -227,7 +90,7 @@
       }
     }
   }
-  .realese, .status, .total-vote {
+  .realese, .status, .total-vote, .info {
     display: block;
     opacity: 0;
     transition: all .3s ease .5s;
@@ -237,5 +100,16 @@
       transform: translateY(0);
       opacity: 1;
     }
+  }
+}
+.homepage {
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .3s ease;
+  &:hover {
+    text-decoration: none;
+    color: rgb(250, 36, 36);
   }
 }

@@ -6,9 +6,9 @@ import { Directive, HostBinding, Input, AfterViewInit, ElementRef } from '@angul
 export class LazyLoadDirective implements AfterViewInit {
 
   @HostBinding('attr.src') srcAttr = null;
-  @Input() src:string;
+  @Input() src: string;
   constructor(
-    private el:ElementRef
+    private el: ElementRef
   ) { }
 
   ngAfterViewInit(): void {
@@ -18,16 +18,15 @@ export class LazyLoadDirective implements AfterViewInit {
   private candLazyLoad(): boolean {
     return window && 'IntersectionObserver' in window;
   }
-
   private lazyLoadImage(): void {
-    const obs:IntersectionObserver = new IntersectionObserver((entries: any[]) => {
+    const obs: IntersectionObserver = new IntersectionObserver((entries: any[]) => {
       entries.forEach(({ isIntersecting }) => {
-        if(isIntersecting) {
+        if (isIntersecting) {
           this.loadImage();
           obs.unobserve(this.el.nativeElement);
           obs.disconnect();
         }
-      }, { treshold:0.5, margin:'50%', root:null })
+      }, { treshold: 0.5 })
     });
     obs.observe(this.el.nativeElement);
   }

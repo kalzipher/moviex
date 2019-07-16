@@ -9,8 +9,9 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 })
 export class MoviesComponent implements OnInit {
 
-  @ViewChild('movieCard', { static:true }) movieElement:ElementRef;
-  @Input('movie') public movie:Movie;
+  @ViewChild('movieCard', { static: true }) movieElement: ElementRef;
+  @Input() public movie: Movie;
+
   public faEyeIcon = faEye;
   constructor(
     private renderer2: Renderer2

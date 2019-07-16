@@ -1,9 +1,10 @@
 <nav class="navbar-movie">
   <div class="wrapper">
     <div class="container-search">
-      <input type="search" class="input-search" placeholder="Buscar...">
+      <input type="search" [(ngModel)]="search" class="input-search" (ngModelChange)="changedInput()"
+        placeholder="Buscar...">
       <button type="button" class="btn-search">
-        Q
+        <fa-icon [icon]="iconSearch"></fa-icon>
       </button>
     </div>
   </div>

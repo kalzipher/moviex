@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'movie-navbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  public search: string = '';
+  public iconSearch: IconDefinition = faSearch;
+  @Output() searched: EventEmitter<string> = new EventEmitter<string>(null);
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public changedInput(): void {
+    this.searched.emit(this.search);
   }
 
 }
