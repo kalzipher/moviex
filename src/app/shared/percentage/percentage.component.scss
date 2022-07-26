@@ -1,0 +1,72 @@
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  &.activated {
+    animation: rating 1s ease-in-out 1.5s forwards;
+    @keyframes rating {
+      from {
+        opacity: 0;
+        transform: translateX(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+.text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+.single-chart {
+  height: 80px;
+  width: 80px;
+  padding: .25rem;
+  background-color: #081c22;
+  border-radius: 50%;
+  display: inline-block;
+}
+.circular-chart {
+  display: block;
+  &.success .circle {
+    stroke: rgb(0, 167, 8);
+  }
+  &.warning .circle {
+    stroke: rgb(209, 212, 47);
+  }
+  &.danger .circle {
+    stroke: rgb(255, 23, 23);
+  }
+}
+.circle-bg {
+  fill: none;
+  stroke: rgba(238, 238, 238, 0.288);
+  stroke-width: 4;
+}
+.circle {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: all .3s ease;
+  &.animated {
+    animation: progress 1s ease-in-out forwards;
+  }
+}
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+.percentage {
+  fill: whitesmoke;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}

@@ -1,0 +1,40 @@
+.container-home {
+    display: block;
+    background-color: #0F1115;
+    height: auto;
+    min-height: 100vh;
+    height: auto;
+    .wrapper-home {
+      display: flex;
+      width: 100%;
+      padding: 1rem 0;
+      padding-bottom: 3rem;
+      .menu {
+        display: block;
+        width: 300px;
+      }
+      .list {
+        display: block;
+        padding: 1rem;
+        padding-right: 1rem;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        box-shadow: 1px 3px 6px black;
+        background-color: #19181F;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width:800px) {
+      .wrapper-home {
+        padding-top: 0;
+        
+        .menu {
+          width: 0;
+        }
+        .list {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+  

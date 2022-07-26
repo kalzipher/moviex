@@ -1,0 +1,3 @@
+<div class="poster-movie">
+  <img [src]="posterPath" [class.active]="isLoadedPoster && isLoaded" #moviePoster class="img" (load)=onload()>
+</div>

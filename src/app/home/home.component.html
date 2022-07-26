@@ -1,0 +1,21 @@
+<div class="container-home">
+  <movie-navbar (searched)="onSearched($event)"></movie-navbar>
+  <div class="wrapper-home">
+    <div class="menu">
+      <movie-menu></movie-menu>
+    </div>
+    <div class="list">
+      <div class="row no-gutters" *ngIf="movies$ | async as movies">
+        <ng-container *ngIf="(movies.results | search: searcher) as r">
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let movie of r">
+            <movie-movies [movie]="movie"></movie-movies>
+          </div>
+          <div class="col-md-12" *ngIf="r.length === 0">
+            <h2 class="text-center text-light">No se encontraron coincidencias</h2>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<movie-footer></movie-footer>

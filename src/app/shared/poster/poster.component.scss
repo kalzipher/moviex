@@ -1,0 +1,44 @@
+.poster-movie {
+    position: relative;
+    top:-35%;
+    width: 100%;
+    max-width: 350px;
+    height: max-content;
+    z-index: 2;
+    display: inline-block;
+    transition: all .3s ease;
+    &::after, &::before {
+      content: '';
+    }
+  }
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  will-change: transform, opacity, box-shadow, left;
+  box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, .35);
+  border-radius: 15px;
+  opacity: 0;
+  left: -40%;
+  position: relative;
+  transition: all 1.5s cubic-bezier(0.175, 0.75, 0.35, 1) .1s;
+  box-shadow: 0 0 0 transparent;
+  will-change: left, opacity;
+  &.active {
+    animation: inPoster 1.5s cubic-bezier(0.175, 0.75, 0.15, 1) .95s forwards;
+    &:hover {
+      transform: rotateY(-25deg) rotateX(-15deg);
+      box-shadow: -0.5em 0.25em 0.1rem #c5c5c5;
+    }
+  }
+  @keyframes inPoster {
+    from {
+      left: -40%;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  }
+}

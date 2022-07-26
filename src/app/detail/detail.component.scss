@@ -1,0 +1,115 @@
+.container-poster {
+  display: block;
+  min-height: 100vh;
+  height: auto;
+  background-color: black;
+  overflow-x: hidden;
+  margin-bottom: 3rem;
+}
+
+.container-info {
+  display: flex;
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+.info-movie {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.75);
+  .title, .description {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: all .3s ease;
+    display: block;
+    &.active {
+      animation: info 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.25s forwards;
+    }
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .description.active {
+    animation-delay: 1.5s;
+  }
+  @keyframes info {
+    from {
+      opacity: 0;
+      transform: translateY(-5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .list-genres {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    &.active {
+      .item-genrer {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .item-genrer {
+      display: inline-block;
+      height: max-content;
+      width: max-content;
+      padding: .2rem .7rem;
+      border-radius: 3px;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+      color: white;
+      background-color: red;
+      user-select: none;
+      cursor: default;
+      transform: translateY(100%);
+      opacity: 0;
+      position: relative;
+      transition: all .5s ease-in-out;
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+      @for $i from 1 through 25 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{$i * .25}s;
+        }
+      }
+      &:first-child {
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        font-weight: 700;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding-left: 0;
+      }
+    }
+  }
+  .realese, .status, .total-vote, .info {
+    display: block;
+    opacity: 0;
+    transition: all .3s ease .5s;
+    transform: translateY(25%);
+    color: rgba(255, 255, 255, 0.75);;
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+.homepage {
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .3s ease;
+  &:hover {
+    text-decoration: none;
+    color: rgb(250, 36, 36);
+  }
+}

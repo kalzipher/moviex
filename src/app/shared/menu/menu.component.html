@@ -1,0 +1,12 @@
+<div class="container-menu">
+  <span class="title-item">categorias</span>
+  <ul class="menu">
+    <li class="item" *ngFor="let category of categories" [class.active]="category.status"
+      (click)="changeGenre(category)">
+      {{ category.name }}
+    </li>
+    <li class="item" [routerLink]="['/aaaaa']">
+      para ir a la pagina 404
+    </li>
+  </ul>
+</div>

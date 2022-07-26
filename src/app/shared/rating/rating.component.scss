@@ -1,0 +1,25 @@
+.list-starts {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .starts  {
+    display: inline-flex;
+    width: max-content;
+    position: relative;
+  }
+  .star-rating {
+    fill: #ffa000;
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+  .star-default {
+    fill: #a9a9a994;
+  }
+  .range {
+    display: inline-block;
+    color: white;
+    text-transform: capitalize;
+  }
+}

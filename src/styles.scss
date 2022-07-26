@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    padding:0;
+    margin:0;
+  }
+  
+  body {
+    display: block;
+    min-height:100vh;
+    box-sizing: border-box;
+    background-color:black;
+    transition: all .3s ease-in;
+    margin: 0;
+    // &::-webkit-progress-bar {
+    //   background-color: red;
+    // }
+    // &::::-webkit-progress-bar
+    &::-webkit-scrollbar-track {
+      background-color: black;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 50px;
+      background: rgb(38, 48, 66);
+    }
+  }
+  
+  
+  @keyframes rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
