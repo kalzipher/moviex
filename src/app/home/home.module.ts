@@ -9,7 +9,8 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SearchPipeModule } from '@core/pipes/search/search.module';
 import { MoviesComponent } from './components/movies.component';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
+import { LayoutModule } from '@layout/layout.module';
 
 @NgModule({
   declarations: [HomeRoutingModule.components, MoviesComponent],
@@ -22,8 +23,7 @@ import { SharedModule } from '../shared/shared.module';
 
     SearchPipeModule,
     SharedModule,
-    /*     ,
-    MoviesModule */
+    LayoutModule,
   ],
 })
 export class HomeModule {}

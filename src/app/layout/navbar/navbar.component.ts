@@ -4,21 +4,18 @@ import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'movie-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
   public search: string = '';
-  public iconSearch: IconDefinition = faSearch;
-  @Output() searched: EventEmitter<string> = new EventEmitter<string>(null);
+  public readonly iconSearch: IconDefinition = faSearch;
+  @Output() searched: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public changedInput(): void {
     this.searched.emit(this.search);
   }
-
 }
